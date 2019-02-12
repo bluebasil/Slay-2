@@ -1,3 +1,6 @@
+import terrains
+import random
+import const
 tid_gen = 0
 
 class tile():
@@ -9,16 +12,29 @@ class tile():
 	#240
 	#300
 	adjacent = {}
-	terrain = "Grass"
-	x = -1
-	y = -1
+	terrain = terrains.terrain()
+	owner = None
 	tid = -1
 	tid_gen = [0]
+	rendered = None
+	x = -1
+	y = -1
 
-	def __init__(self):
-		self.tid = self.tid_gen[0]
-		self.tid_gen[0] += 1
+	def __init__(self,terrain_string = None,tid = None,x=-1,y=-1):
+		if terrain_string == None:
+			self.terrain = terrains.find_terrain("Water")
+			#self.terrain = random.choice(terrains.terrains)
+		else:
+			self.terrain = terrains.find_terrain(terrain_string)
+		if tid == None:
+			self.tid = self.tid_gen[0]
+			self.tid_gen[0] += 1
+		else:
+			self.tid = tid
 		self.adjacent = {0:None,60:None,120:None,180:None,240:None,300:None}
+		self.x = x
+		self.y = y
+
 
 	def set_adj(self,d_0 = None,d_60 = None,d_120 = None,d_180 = None,d_240 = None,d_300 = None):
 		if d_0 != None:
@@ -39,3 +55,25 @@ class tile():
 		if d_300 != None:
 			self.adjacent[300] = d_300
 			d_300.adjacent[120] = self
+
+	def toJson(self):
+		adj = {}
+		for key,value in self.adjacent.items():
+			if value == None:
+				adj[key] = None
+			else:
+				adj[key] = value.tid
+		json = {}
+		json["adjacent"] = adj
+		json["terrain"] = self.terrain.name
+		json["tid"] = self.tid
+		json["x"] = self.x
+		json["y"] = self.y
+		return json
+
+	def load_adj(self,adj,tiles):
+		for key,value in adj.items():
+			if value != None:
+				self.adjacent[int(key)] = tiles[value]
+		#print(self.terrain,flush = True)
+

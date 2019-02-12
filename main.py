@@ -2,6 +2,7 @@ import view
 import model
 import _thread
 import arcade
+import const
 
 class main:
 
@@ -9,7 +10,8 @@ class main:
 	view = None
 
 	def __init__(self):
-		self.model = model.model(4,4)
+		#These must be even!
+		self.model = model.model(const.BOARD_WIDTH,const.BOARD_HEIGHT)
 		self.view = view.MyGame(self.model)
 		self.view.setup()
 		arcade.run()
