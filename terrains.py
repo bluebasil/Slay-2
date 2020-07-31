@@ -24,6 +24,11 @@ class ice(terrain):
 	color = (200,200,200)
 	movement_cost = 1.5
 
+class mountain(terrain):
+	name = "Mountain"
+	color = (110,110,110)
+	movement_cost = math.inf
+
 def find_terrain(string):
 	for t in terrains:
 		if t.name == string:
