@@ -8,6 +8,13 @@ to run:
 python3 main.py
 ```
 
+Not even everything works in this, sue me.  Just kidding.  If anyone shows interest in this, awesome, i'd love to fix things up or explain it.  just let me know!
+
+
+press `enter` to load a saved map
+press `backspace` to save your map (will overwrite the current one, probably, oh well)
 press `g` to toggle between globe and flat mode.
 
-Not even everything works in this, sue me.  Just kidding.  If anyone shows interest in this, awesome, i'd love to fix things up or explain it.  just let me know!
+left click on a tile to change its color.
+right click on a tile to draw the shortest path from the highlighted tile to this on - not including blue/water tiles. (just a fun addition)
+
