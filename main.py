@@ -18,7 +18,7 @@ class main:
 
 		while True:
 			key = input()
-			if key == "exit":
+			if key == "exit" or key == 'q':
 				return
 
 

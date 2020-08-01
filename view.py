@@ -92,7 +92,7 @@ class MyGame(arcade.Window):
 		global cur_path
 		cur_path = path([0,1,2,3,4,5])
 
-		# Don't show the mouse cursor
+		# <s>Don't</s> show the mouse cursor
 		self.set_mouse_visible(True)
 
 		arcade.set_background_color(arcade.color.BLACK)
@@ -286,8 +286,21 @@ class MyGame(arcade.Window):
 	def update(self, delta_time):
 		#print(delta_time,flush = True)
 		if not self.mouse_down and (self.inertia[0] > 0 or self.inertia[1] > 0):
-			self.cen_x += self.inertia[0]#*delta_time
-			self.cen_y += self.inertia[1]#*delta_time
+			self.cen_x += self.inertia[0]*delta_time*2#*0.9
+			self.cen_y += self.inertia[1]*delta_time*2#*0.9
+
+		
+		hypotenuse_of_inertia = math.sqrt(self.inertia[0]**2 + self.inertia[1]**2)
+		if hypotenuse_of_inertia < 0.1:
+			self.inertia[0] = 0
+			self.inertia[1] = 0
+		else:
+			change = 0.1
+
+			self.inertia[0] = self.inertia[0]*(1-change*(abs(self.inertia[0])/(hypotenuse_of_inertia)))
+			self.inertia[1] = self.inertia[1]*(1-change*(abs(self.inertia[1])/(hypotenuse_of_inertia)))
+
+		#print(self.inertia,flush=True)
 		""" Movement and game logic """
 	   #print(f"updating {delta_time}",flush=True)
 
