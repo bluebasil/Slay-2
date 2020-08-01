@@ -11,7 +11,7 @@ import const
 SCALE = 150
 
 GLOBE_RAD = 500
-GLOBAFY = False
+GLOBAFY = True
 EDIT_MODE = True
 #PI = 3.141592653
 
