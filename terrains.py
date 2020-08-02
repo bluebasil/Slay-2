@@ -16,18 +16,33 @@ class grass(terrain):
 
 class water(terrain):
 	name = "Water"
-	color = (102, 153, 204)
+	color = (59,74,217)
+	movement_cost = math.inf
+
+class deep_water(terrain):
+	name = "Deep Water"
+	color = (34,47,168)
 	movement_cost = math.inf
 
 class ice(terrain):
 	name = "Ice"
-	color = (200,200,200)
+	color = (182,233,250)
 	movement_cost = 1.5
 
 class mountain(terrain):
 	name = "Mountain"
-	color = (110,110,110)
+	color = (150,150,150)
 	movement_cost = math.inf
+
+class marsh(terrain):
+	name = "Marsh"
+	color = (109,138,85)
+	movement_cost = 3
+
+class forest(terrain):
+	name = "Forest"
+	color = (38,89,43)
+	movement_cost = 3
 
 def find_terrain(string):
 	for t in terrains:
@@ -35,4 +50,4 @@ def find_terrain(string):
 			return t
 	return None
 
-terrains = [grass(),water(),ice()]
+terrains = [deep_water(),water(),ice(),grass(),forest(),marsh(),mountain()]

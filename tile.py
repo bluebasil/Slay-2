@@ -22,8 +22,8 @@ class tile():
 
 	def __init__(self,terrain_string = None,tid = None,x=-1,y=-1):
 		if terrain_string == None:
-			self.terrain = terrains.find_terrain("Water")
-			#self.terrain = random.choice(terrains.terrains)
+			#self.terrain = terrains.find_terrain("Water")
+			self.terrain = random.choice(terrains.terrains)
 		else:
 			self.terrain = terrains.find_terrain(terrain_string)
 		if tid == None:
