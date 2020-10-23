@@ -1,5 +1,8 @@
+[![Example Video](http://img.youtube.com/vi/mWIIy4eh6bE/0.jpg)](https://www.youtube.com/watch?v=mWIIy4eh6bE)
+
+
 # Slay-2
-Proof of concept off a spherical earch made completly from hexagons
+Proof of concept off a spherical search made completly from hexagons
 
 Written in python3
 
@@ -8,8 +11,7 @@ to run:
 python3 main.py
 ```
 
-Not even everything works in this, sue me.  Just kidding.  If anyone shows interest in this, awesome, i'd love to fix things up or explain it.  just let me know!
-
+Just a proof-of-concept, not a complete product.
 
 press `enter` to load a saved map
 press `backspace` to save your map (will overwrite the current one, probably, oh well)
