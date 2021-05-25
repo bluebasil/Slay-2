@@ -6,6 +6,11 @@ Proof of concept off a spherical search made completly from hexagons
 
 Written in python3
 
+to setup:
+```bash
+pip3 install -r requirements.txt
+```
+
 to run:
 ```bash
 python3 main.py
